@@ -3,9 +3,9 @@
     "target": "ES2020",
     "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "jsx": "react",
+    "jsx": "react-jsx",
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": false,
@@ -16,7 +16,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "noEmit": true,
+    "outDir": "./dist",
     "isolatedModules": true
   },
   "include": [
@@ -25,7 +25,10 @@
     "*.js"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist",
+    "test-app",
+    "vite.config.build.ts"
   ]
 }
 

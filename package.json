@@ -1,29 +1,25 @@
 {
-  "name": "leaves-and-snow",
+  "name": "@drivej/leaves-animation",
   "version": "1.0.0",
   "description": "A beautiful falling leaves and snow animation using PixiJS with React support",
   "type": "module",
-  "main": "./index.ts",
-  "types": "./index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./index.ts",
-      "types": "./index.ts"
-    },
-    "./react": {
-      "import": "./LeavesAndSnowReact.tsx",
-      "types": "./LeavesAndSnowReact.tsx"
-    },
-    "./vanilla": {
-      "import": "./LeavesAndSnow.js"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
-    "*.js",
-    "*.ts",
-    "*.tsx",
-    "assets/**/*"
+    "dist",
+    "assets"
   ],
+  "scripts": {
+    "build": "vite build --config vite.config.build.ts && npm run build:types",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "prepublishOnly": "npm run build"
+  },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
@@ -41,7 +37,9 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
-    "typescript": "^5.0.0"
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.0.0",
+    "vite": "^6.0.7"
   },
   "keywords": [
     "pixi",
@@ -53,6 +51,10 @@
     "react",
     "typescript"
   ],
-  "author": "",
-  "license": "MIT"
+  "author": "drivej",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drivej/leaves-animation.git"
+  }
 }

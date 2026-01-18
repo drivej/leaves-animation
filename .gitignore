@@ -1,8 +1,7 @@
 # Dependencies
 node_modules/
 
-# Build outputs
-dist/
+# Build outputs (dist is committed for GitHub installs)
 build/
 *.tsbuildinfo
 
