@@ -31,33 +31,21 @@ export function tickGears(gears) {
   return p;
 }
 
-/**
- * Interpolate between two hex colors
- * @param {number} color1 - First color as hex (e.g., 0xFF33CC)
- * @param {number} color2 - Second color as hex (e.g., 0xAACCFF)
- * @param {number} t - Interpolation factor (0 = color1, 1 = color2)
- * @returns {number} Interpolated color as hex
- */
 export function lerpColor(color1, color2, t) {
-  // Clamp t between 0 and 1
   t = Math.max(0, Math.min(1, t));
 
-  // Extract RGB components from color1
   const r1 = (color1 >> 16) & 0xff;
   const g1 = (color1 >> 8) & 0xff;
   const b1 = color1 & 0xff;
 
-  // Extract RGB components from color2
   const r2 = (color2 >> 16) & 0xff;
   const g2 = (color2 >> 8) & 0xff;
   const b2 = color2 & 0xff;
 
-  // Interpolate each component
   const r = Math.round(r1 + (r2 - r1) * t);
   const g = Math.round(g1 + (g2 - g1) * t);
   const b = Math.round(b1 + (b2 - b1) * t);
 
-  // Combine back into hex
   return (r << 16) | (g << 8) | b;
 }
 

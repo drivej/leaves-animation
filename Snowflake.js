@@ -1,7 +1,7 @@
+import * as PIXI from 'pixi.js';
 import { randomFloat, randomGears, tickGears, lerpColor, lerp, RAD } from './utils.js';
 
 export class Snowflake extends PIXI.Graphics {
-  // Atmospheric perspective color (sky blue)
   static SKY_TINT = 0x99cccff;
 
   constructor(app) {
@@ -10,9 +10,6 @@ export class Snowflake extends PIXI.Graphics {
     this.scale.set(1);
     this.x = randomFloat(-500, app.screen.width + 500);
     this.y = -50;
-
-    // Store original tint for depth calculation
-    this.originalTint = 0xffffff;
 
     const z = ~~randomFloat(0, 300);
     const minScale = 0.5;
@@ -27,7 +24,7 @@ export class Snowflake extends PIXI.Graphics {
       baseY: this.y,
       gears: randomGears(),
       baseScale,
-      z, // Depth value (0 = far, 300 = near, girl at 100)
+      z,
       spinSpeed: randomFloat(-0.01, 0.01),
       flipSpeed: randomFloat(0.5, 1),
       flipAmount: randomFloat(0.2, 0.4),
@@ -43,42 +40,34 @@ export class Snowflake extends PIXI.Graphics {
   }
 
   init() {
-    const radiusX = 5; //randomFloat(10, 20);
-    const radiusY = 5; //randomFloat(10, 20);
-    const smoothness = 5; //randomFloat(10, 20);
+    const radiusX = 5;
+    const radiusY = 5;
+    const smoothness = 5;
     const color = 0xffffff;
 
     this.beginFill(color);
 
     const points = [];
-    const numPoints = smoothness; // Higher number = smoother blob
+    const numPoints = smoothness;
     const angleIncrement = (Math.PI * 2) / numPoints;
-    const randomFactor = 1; // How irregular the blob is (0 = perfect oval, 1 = very chaotic)
+    const randomFactor = 1;
 
     for (let i = 0; i < numPoints; i++) {
       const angle = i * angleIncrement;
-      // Generate a random perturbation for the radius
       const randX = Math.random() * randomFactor - randomFactor / 2;
       const randY = Math.random() * randomFactor - randomFactor / 2;
 
-      // Calculate the actual radius at this angle
       const currentRadiusX = radiusX * (1 + randX);
       const currentRadiusY = radiusY * (1 + randY);
 
-      // Convert polar coordinates (angle, radius) to Cartesian coordinates (x, y)
       const x = Math.cos(angle) * currentRadiusX;
       const y = Math.sin(angle) * currentRadiusY;
 
       points.push(new PIXI.Point(x, y));
     }
 
-    // Draw the shape using the generated points
     this.drawPolygon(points);
     this.endFill();
-
-    // Position the blob in the center of the screen/container
-    //graphics.x = app.screen.width / 2;
-    //graphics.y = app.screen.height / 2;
   }
 
   onTick(ticker, world) {
@@ -90,7 +79,6 @@ export class Snowflake extends PIXI.Graphics {
     this.x = p.x + this.anim.baseX;
     this.y = p.y + this.anim.baseY;
 
-    // Simulate 3D rotation using scale
     this.anim.spinY.angle += this.anim.spinY.speed + world.vector.x * 0.5;
     this.rotation = this.anim.spinY.angle * RAD;
 

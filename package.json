@@ -1,0 +1,58 @@
+{
+  "name": "leaves-and-snow",
+  "version": "1.0.0",
+  "description": "A beautiful falling leaves and snow animation using PixiJS with React support",
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "import": "./index.ts",
+      "types": "./index.ts"
+    },
+    "./react": {
+      "import": "./LeavesAndSnowReact.tsx",
+      "types": "./LeavesAndSnowReact.tsx"
+    },
+    "./vanilla": {
+      "import": "./LeavesAndSnow.js"
+    }
+  },
+  "files": [
+    "*.js",
+    "*.ts",
+    "*.tsx",
+    "assets/**/*"
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "pixi.js": "^8.15.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "pixi",
+    "pixijs",
+    "animation",
+    "leaves",
+    "snow",
+    "particles",
+    "react",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT"
+}
