@@ -1,1 +1,1 @@
-{"version":3,"file":"Snowflake.d.ts","sourceRoot":"","sources":["../Snowflake.js"],"names":[],"mappings":"AAGA;IACE,wBAA4B;IAE5B,sBAiCC;IA7BC,OAAkD;IAUlD;;;;;;;;;;;;;;;;;;;;;;;;;;MAgBC;IAKH,aA6BC;IAED,sCAgBC;CACF;sBAzFqB,SAAS"}
+{"version":3,"file":"Snowflake.d.ts","sourceRoot":"","sources":["../src/Snowflake.js"],"names":[],"mappings":"AAGA;IACE,wBAA4B;IAE5B,sBAiCC;IA7BC,OAAkD;IAUlD;;;;;;;;;;;;;;;;;;;;;;;;;;MAgBC;IAKH,aA6BC;IAED,sCAgBC;CACF;sBAzFqB,SAAS"}

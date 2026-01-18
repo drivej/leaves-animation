@@ -8,7 +8,7 @@ export interface LeavesAndSnowOptions {
 
 export class LeavesAndSnow {
   constructor(options?: LeavesAndSnowOptions);
-  
+
   pointer: any;
   elements: any[];
   world: { vector: { x: number; y: number } };
@@ -18,7 +18,7 @@ export class LeavesAndSnow {
   width: number;
   height: number;
   container?: HTMLElement;
-  
+
   init(): Promise<void>;
   onResize(): void;
   positionGirl(): void;
@@ -28,4 +28,3 @@ export class LeavesAndSnow {
   removeElement(element: any): void;
   destroy(): void;
 }
-

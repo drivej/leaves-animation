@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     target: 'esnext',
     lib: {
-      entry: resolve(__dirname, 'index.ts'),
+      entry: resolve(__dirname, 'src/index.ts'),
       name: 'LeavesAnimation',
       formats: ['es'],
       fileName: 'index'
